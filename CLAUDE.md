@@ -137,8 +137,6 @@ stack-manager/
 │   │   │   └── translation.json
 │   │   ├── fr/               # French translations
 │   │   │   └── translation.json
-│   │   ├── es/               # Spanish translations
-│   │   │   └── translation.json
 │   │   └── index.ts          # i18n configuration
 │   ├── components/            # React components
 │   │   ├── ui/               # Radix UI components
@@ -254,8 +252,6 @@ src/locales/
 │   └── translation.json
 ├── fr/
 │   └── translation.json
-├── es/
-│   └── translation.json
 └── index.ts
 ```
 
@@ -296,8 +292,8 @@ export function MyComponent() {
 - ALL user-facing text must go through i18n
 - NO hardcoded strings in components
 - Translation keys must be in English
-- Support minimum: English, French, Spanish
-- Add new languages easily via locale files
+- Supported languages: English (en), French (fr)
+- Additional languages can be added easily via locale files
 
 ---
 
@@ -1014,9 +1010,8 @@ serde_json = "1.0"
 - [ ] Create translation structure (src/locales)
 - [ ] Set up English translations
 - [ ] Set up French translations
-- [ ] Set up Spanish translations
 - [ ] Create i18n configuration
-- [ ] Add language switcher component
+- [ ] Add language switcher component (EN/FR)
 - [ ] Test i18n across all platforms
 
 #### UI Foundation

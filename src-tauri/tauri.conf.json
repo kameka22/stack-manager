@@ -1,0 +1,55 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist",
+    "withGlobalTauri": false
+  },
+  "package": {
+    "productName": "Stack Manager",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "fs": {
+        "all": false,
+        "readFile": true,
+        "writeFile": true,
+        "readDir": true,
+        "createDir": true,
+        "removeFile": true,
+        "scope": ["$APPDATA/*", "$APPDATA/**/*"]
+      },
+      "dialog": {
+        "all": false,
+        "open": true,
+        "save": true
+      },
+      "shell": {
+        "all": false,
+        "open": true
+      }
+    },
+    "bundle": {
+      "active": false,
+      "targets": "all",
+      "identifier": "com.stackmanager.app"
+    },
+    "security": {
+      "csp": "default-src 'self'; style-src 'self' 'unsafe-inline'"
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "Stack Manager",
+        "width": 1200,
+        "height": 800,
+        "minWidth": 800,
+        "minHeight": 600
+      }
+    ]
+  }
+}

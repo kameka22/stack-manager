@@ -1,0 +1,35 @@
+{
+  "common": {
+    "appName": "Stack Manager",
+    "welcome": "Welcome to Stack Manager",
+    "description": "Manage your technology stacks with ease"
+  },
+  "actions": {
+    "create": "Create",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next"
+  },
+  "navigation": {
+    "home": "Home",
+    "stacks": "Stacks",
+    "settings": "Settings"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode"
+  },
+  "errors": {
+    "generic": "An error occurred",
+    "notFound": "Not found",
+    "serverError": "Server error"
+  }
+}

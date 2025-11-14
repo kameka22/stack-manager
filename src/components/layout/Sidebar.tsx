@@ -6,6 +6,7 @@ import {
   Settings,
   ChevronLeft,
   ChevronRight,
+  Sparkles,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -17,38 +18,60 @@ interface SidebarProps {
 export function Sidebar({ className }: SidebarProps) {
   const { t } = useTranslation();
   const [collapsed, setCollapsed] = useState(false);
+  const [activeItem, setActiveItem] = useState('/');
 
   const menuItems = [
-    { icon: Home, label: t('navigation.home'), path: '/' },
-    { icon: Layers, label: t('navigation.stacks'), path: '/stacks' },
-    { icon: Settings, label: t('navigation.settings'), path: '/settings' },
+    {
+      icon: Home,
+      label: t('navigation.home'),
+      path: '/',
+      gradient: 'from-purple-500 to-pink-500'
+    },
+    {
+      icon: Layers,
+      label: t('navigation.stacks'),
+      path: '/stacks',
+      gradient: 'from-blue-500 to-cyan-500'
+    },
+    {
+      icon: Settings,
+      label: t('navigation.settings'),
+      path: '/settings',
+      gradient: 'from-orange-500 to-pink-500'
+    },
   ];
 
   return (
     <aside
       className={cn(
-        'relative flex flex-col border-r bg-sidebar-background transition-all duration-300',
-        collapsed ? 'w-16' : 'w-64',
+        'relative flex flex-col bg-sidebar-background transition-all duration-300 border-r border-sidebar-border',
+        collapsed ? 'w-20' : 'w-72',
         className
       )}
     >
       {/* Header */}
-      <div className="flex h-16 items-center justify-between px-4 border-b">
+      <div className="flex h-20 items-center justify-between px-5 border-b border-sidebar-border">
         {!collapsed && (
-          <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold">SM</span>
+          <div className="flex items-center gap-3">
+            <div className="h-10 w-10 rounded-2xl gradient-primary flex items-center justify-center shadow-lg">
+              <Sparkles className="h-5 w-5 text-white" />
             </div>
-            <span className="font-semibold text-sidebar-foreground">
-              {t('common.appName')}
-            </span>
+            <div>
+              <span className="font-bold text-lg text-sidebar-foreground gradient-text">
+                {t('common.appName')}
+              </span>
+              <p className="text-xs text-muted-foreground">v1.0.0</p>
+            </div>
           </div>
         )}
         <Button
           variant="ghost"
           size="icon"
           onClick={() => setCollapsed(!collapsed)}
-          className={cn('h-8 w-8', collapsed && 'mx-auto')}
+          className={cn(
+            'h-9 w-9 rounded-xl hover:bg-sidebar-accent',
+            collapsed && 'mx-auto'
+          )}
         >
           {collapsed ? (
             <ChevronRight className="h-4 w-4" />
@@ -59,36 +82,79 @@ export function Sidebar({ className }: SidebarProps) {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 space-y-1 p-2">
-        {menuItems.map((item) => (
-          <button
-            key={item.path}
-            className={cn(
-              'flex w-full items-center gap-3 rounded-lg px-3 py-2',
-              'text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground',
-              'transition-colors'
-            )}
-          >
-            <item.icon className="h-5 w-5 shrink-0" />
-            {!collapsed && <span className="text-sm font-medium">{item.label}</span>}
-          </button>
-        ))}
+      <nav className="flex-1 space-y-2 p-4">
+        {menuItems.map((item) => {
+          const isActive = activeItem === item.path;
+          return (
+            <button
+              key={item.path}
+              onClick={() => setActiveItem(item.path)}
+              className={cn(
+                'flex w-full items-center gap-4 rounded-2xl px-4 py-4',
+                'transition-all duration-300 group relative overflow-hidden',
+                isActive
+                  ? 'glass-card shadow-lg'
+                  : 'hover:bg-sidebar-accent/50'
+              )}
+            >
+              {/* Gradient background for active state */}
+              {isActive && (
+                <div className={cn(
+                  'absolute inset-0 opacity-10 bg-gradient-to-r',
+                  item.gradient
+                )} />
+              )}
+
+              {/* Icon with gradient background */}
+              <div className={cn(
+                'relative h-12 w-12 rounded-xl flex items-center justify-center shrink-0',
+                'transition-all duration-300',
+                isActive
+                  ? `bg-gradient-to-br ${item.gradient} shadow-lg`
+                  : 'bg-sidebar-accent/50 group-hover:scale-110'
+              )}>
+                <item.icon className={cn(
+                  'h-6 w-6',
+                  isActive ? 'text-white' : 'text-sidebar-foreground'
+                )} />
+              </div>
+
+              {/* Label */}
+              {!collapsed && (
+                <div className="flex flex-col items-start flex-1">
+                  <span className={cn(
+                    'text-sm font-semibold',
+                    isActive ? 'text-sidebar-foreground' : 'text-muted-foreground'
+                  )}>
+                    {item.label}
+                  </span>
+                </div>
+              )}
+
+              {/* Active indicator */}
+              {isActive && !collapsed && (
+                <div className="h-2 w-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500" />
+              )}
+            </button>
+          );
+        })}
       </nav>
 
       {/* Footer */}
-      <div className="border-t p-4">
+      <div className="border-t border-sidebar-border p-4">
         <div
           className={cn(
-            'flex items-center gap-3 rounded-lg px-2 py-2',
+            'flex items-center gap-3 rounded-2xl px-3 py-3 glass cursor-pointer',
+            'hover:glass-card transition-all duration-300',
             collapsed && 'justify-center'
           )}
         >
-          <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center">
-            <span className="text-xs font-medium">U</span>
+          <div className="h-10 w-10 rounded-xl gradient-primary flex items-center justify-center shrink-0 shadow-lg">
+            <span className="text-sm font-bold text-white">U</span>
           </div>
           {!collapsed && (
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium truncate">User</p>
+              <p className="text-sm font-semibold truncate text-sidebar-foreground">User</p>
               <p className="text-xs text-muted-foreground truncate">user@example.com</p>
             </div>
           )}

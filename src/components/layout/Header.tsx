@@ -37,7 +37,7 @@ export function Header({ className }: HeaderProps) {
       <div
         className="flex h-12 items-center justify-between px-8 bg-background"
         style={{
-          paddingLeft: 'max(2rem, env(safe-area-inset-left, 80px))',
+          paddingLeft: 'max(2rem, env(safe-area-inset-left, 100px))',
           WebkitAppRegion: 'no-drag'
         } as React.CSSProperties}
       >

@@ -26,16 +26,16 @@ export function Header({ className }: HeaderProps) {
         className
       )}
     >
-      {/* Drag region - Height of macOS traffic lights */}
+      {/* Drag region - Height of macOS title bar */}
       <div
         data-tauri-drag-region
-        className="h-8 w-full cursor-move select-none bg-background/50"
+        className="h-14 w-full cursor-move select-none bg-background/50"
         style={{ WebkitAppRegion: 'drag' } as React.CSSProperties}
       />
 
       {/* Header content */}
       <div
-        className="flex h-16 items-center justify-between px-8 bg-background"
+        className="flex h-12 items-center justify-between px-8 bg-background"
         style={{
           paddingLeft: 'max(2rem, env(safe-area-inset-left, 80px))',
           WebkitAppRegion: 'no-drag'

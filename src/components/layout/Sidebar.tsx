@@ -44,16 +44,22 @@ export function Sidebar({ className }: SidebarProps) {
   return (
     <aside
       className={cn(
-        'relative flex flex-col bg-background transition-all duration-300',
+        'relative flex flex-col bg-background transition-all duration-300 rounded-l-2xl',
         collapsed ? 'w-20' : 'w-72',
         className
       )}
-      style={{ paddingTop: '0px' }}
     >
+      {/* Drag region - Height of macOS traffic lights */}
+      <div
+        data-tauri-drag-region
+        className="h-8 w-full cursor-move select-none bg-background/50"
+        style={{ WebkitAppRegion: 'drag' } as React.CSSProperties}
+      />
+
       {/* Header */}
       <div
-        className="flex h-20 items-center justify-between px-5"
-        style={{ paddingTop: '8px' }}
+        className="flex h-16 items-center justify-between px-5"
+        style={{ WebkitAppRegion: 'no-drag' } as React.CSSProperties}
       >
         {!collapsed && (
           <div className="flex items-center gap-3">
@@ -86,7 +92,10 @@ export function Sidebar({ className }: SidebarProps) {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 space-y-2 p-4 relative">
+      <nav
+        className="flex-1 space-y-2 p-4 relative"
+        style={{ WebkitAppRegion: 'no-drag' } as React.CSSProperties}
+      >
         {menuItems.map((item, index) => {
           const isActive = activeItem === item.path;
           return (
@@ -150,7 +159,10 @@ export function Sidebar({ className }: SidebarProps) {
       </nav>
 
       {/* Footer */}
-      <div className="p-4">
+      <div
+        className="p-4"
+        style={{ WebkitAppRegion: 'no-drag' } as React.CSSProperties}
+      >
         <div
           className={cn(
             'flex items-center gap-3 rounded-2xl px-3 py-3 glass cursor-pointer',

@@ -25,19 +25,19 @@ export function Sidebar({ className }: SidebarProps) {
       icon: Home,
       label: t('navigation.home'),
       path: '/',
-      gradient: 'from-purple-500 to-pink-500'
+      gradient: 'from-blue-500 to-cyan-400'
     },
     {
       icon: Layers,
       label: t('navigation.stacks'),
       path: '/stacks',
-      gradient: 'from-blue-500 to-cyan-500'
+      gradient: 'from-cyan-500 to-blue-600'
     },
     {
       icon: Settings,
       label: t('navigation.settings'),
       path: '/settings',
-      gradient: 'from-orange-500 to-pink-500'
+      gradient: 'from-blue-600 to-indigo-500'
     },
   ];
 
@@ -142,7 +142,7 @@ export function Sidebar({ className }: SidebarProps) {
 
               {/* Active indicator */}
               {isActive && !collapsed && (
-                <div className="h-2 w-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 animate-pulse" />
+                <div className="h-2 w-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 animate-pulse" />
               )}
             </button>
           );

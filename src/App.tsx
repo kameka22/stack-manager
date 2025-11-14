@@ -24,7 +24,7 @@ function App() {
       value: '12',
       icon: Layers,
       trend: '+2 this month',
-      gradient: 'from-purple-500 to-pink-500',
+      gradient: 'from-blue-500 to-cyan-400',
       bgGradient: 'gradient-purple-pink',
     },
     {
@@ -32,7 +32,7 @@ function App() {
       value: '8',
       icon: Activity,
       trend: '4 pending',
-      gradient: 'from-blue-500 to-cyan-500',
+      gradient: 'from-cyan-500 to-blue-600',
       bgGradient: 'gradient-blue-purple',
     },
     {
@@ -40,7 +40,7 @@ function App() {
       value: '98.5%',
       icon: TrendingUp,
       trend: '+2.5% from last month',
-      gradient: 'from-orange-500 to-pink-500',
+      gradient: 'from-sky-500 to-blue-500',
       bgGradient: 'gradient-orange-pink',
     },
   ];
@@ -50,25 +50,25 @@ function App() {
       icon: Plus,
       label: 'Create Stack',
       description: 'Start a new stack configuration',
-      gradient: 'from-purple-500 to-pink-500',
+      gradient: 'from-blue-500 to-cyan-400',
     },
     {
       icon: Database,
       label: 'Manage Data',
       description: 'Configure your databases',
-      gradient: 'from-blue-500 to-cyan-500',
+      gradient: 'from-cyan-500 to-blue-600',
     },
     {
       icon: GitBranch,
       label: 'Version Control',
       description: 'Track stack versions',
-      gradient: 'from-green-500 to-emerald-500',
+      gradient: 'from-sky-500 to-blue-500',
     },
     {
       icon: Server,
       label: 'Servers',
       description: 'Manage your infrastructure',
-      gradient: 'from-orange-500 to-red-500',
+      gradient: 'from-blue-600 to-indigo-500',
     },
   ];
 
@@ -77,19 +77,19 @@ function App() {
       icon: Zap,
       title: 'Lightning Fast',
       description: 'Deploy your stacks in seconds with optimized performance',
-      gradient: 'from-yellow-500 to-orange-500',
+      gradient: 'from-cyan-400 to-blue-500',
     },
     {
       icon: Shield,
       title: 'Secure by Default',
       description: 'Enterprise-grade security built into every deployment',
-      gradient: 'from-blue-500 to-purple-500',
+      gradient: 'from-blue-500 to-indigo-600',
     },
     {
       icon: Rocket,
       title: 'Scale Instantly',
       description: 'Grow from prototype to production seamlessly',
-      gradient: 'from-pink-500 to-rose-500',
+      gradient: 'from-sky-500 to-blue-600',
     },
   ];
 
@@ -98,7 +98,7 @@ function App() {
       <div className="space-y-8 pb-8">
         {/* Hero Section */}
         <div className="relative overflow-hidden rounded-3xl glass-card p-12">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-orange-500/20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-cyan-500/20 to-sky-500/20" />
           <div className="relative z-10">
             <div className="flex items-start justify-between">
               <div className="max-w-2xl">
@@ -209,9 +209,9 @@ function App() {
           <CardContent>
             <div className="space-y-3">
               {[
-                { icon: Layers, title: 'Production Stack Updated', time: '2 minutes ago', color: 'from-purple-500 to-pink-500' },
-                { icon: Activity, title: 'New Deployment Started', time: '15 minutes ago', color: 'from-blue-500 to-cyan-500' },
-                { icon: Shield, title: 'Security Scan Completed', time: '1 hour ago', color: 'from-green-500 to-emerald-500' },
+                { icon: Layers, title: 'Production Stack Updated', time: '2 minutes ago', color: 'from-blue-500 to-cyan-400' },
+                { icon: Activity, title: 'New Deployment Started', time: '15 minutes ago', color: 'from-cyan-500 to-blue-600' },
+                { icon: Shield, title: 'Security Scan Completed', time: '1 hour ago', color: 'from-sky-500 to-blue-500' },
               ].map((item, i) => (
                 <div
                   key={i}

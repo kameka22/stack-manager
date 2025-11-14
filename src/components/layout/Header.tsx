@@ -51,7 +51,7 @@ export function Header({ className }: HeaderProps) {
             className="relative h-11 w-11 rounded-xl hover:glass-card"
           >
             <Bell className="h-5 w-5" />
-            <span className="absolute top-2 right-2 h-2 w-2 rounded-full bg-gradient-to-br from-purple-500 to-pink-500" />
+            <span className="absolute top-2 right-2 h-2 w-2 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400" />
           </Button>
 
           {/* Language Toggle */}

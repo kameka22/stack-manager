@@ -4,40 +4,40 @@
 
 @layer base {
   :root {
-    /* CleanMyMac-inspired Dark Theme */
+    /* CleanMyMac-inspired Dark Theme - Blue Dominant */
     --background: 220 20% 8%;
     --foreground: 0 0% 98%;
     --card: 220 18% 12%;
     --card-foreground: 0 0% 98%;
     --popover: 220 18% 12%;
     --popover-foreground: 0 0% 98%;
-    --primary: 262 83% 58%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
     --secondary: 220 15% 18%;
     --secondary-foreground: 0 0% 98%;
     --muted: 220 15% 15%;
     --muted-foreground: 220 10% 60%;
-    --accent: 262 83% 58%;
+    --accent: 217 91% 60%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
     --border: 220 15% 20%;
     --input: 220 15% 20%;
-    --ring: 262 83% 58%;
+    --ring: 217 91% 60%;
     --radius: 1rem;
     --sidebar-background: 220 20% 10%;
     --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 15% 18%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 220 15% 15%;
-    --sidebar-ring: 262 83% 58%;
+    --sidebar-ring: 217 91% 60%;
 
-    /* Gradient colors for CleanMyMac style */
-    --gradient-start: 262 83% 58%;
-    --gradient-middle: 280 80% 60%;
-    --gradient-end: 340 82% 52%;
+    /* Gradient colors - Blue dominant */
+    --gradient-start: 217 91% 60%;
+    --gradient-middle: 200 91% 60%;
+    --gradient-end: 240 80% 65%;
   }
 
   .dark {
@@ -47,27 +47,27 @@
     --card-foreground: 0 0% 98%;
     --popover: 220 18% 12%;
     --popover-foreground: 0 0% 98%;
-    --primary: 262 83% 58%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
     --secondary: 220 15% 18%;
     --secondary-foreground: 0 0% 98%;
     --muted: 220 15% 15%;
     --muted-foreground: 220 10% 60%;
-    --accent: 262 83% 58%;
+    --accent: 217 91% 60%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
     --border: 220 15% 20%;
     --input: 220 15% 20%;
-    --ring: 262 83% 58%;
+    --ring: 217 91% 60%;
     --sidebar-background: 220 20% 10%;
     --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 15% 18%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 220 15% 15%;
-    --sidebar-ring: 262 83% 58%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
@@ -120,7 +120,7 @@
     scrollbar-width: none;
   }
 
-  /* CleanMyMac-style gradients */
+  /* CleanMyMac-style gradients - Blue dominant */
   .gradient-primary {
     background: linear-gradient(135deg,
       hsl(var(--gradient-start)) 0%,
@@ -129,7 +129,7 @@
   }
 
   .gradient-purple-pink {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: linear-gradient(135deg, #4facfe 0%, #00d4ff 50%, #667eea 100%);
   }
 
   .gradient-blue-purple {
@@ -137,7 +137,7 @@
   }
 
   .gradient-orange-pink {
-    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    background: linear-gradient(135deg, #4facfe 0%, #00d4ff 100%);
   }
 
   /* Glassmorphism effect */

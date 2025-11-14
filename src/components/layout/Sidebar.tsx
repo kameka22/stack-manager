@@ -48,9 +48,13 @@ export function Sidebar({ className }: SidebarProps) {
         collapsed ? 'w-20' : 'w-72',
         className
       )}
+      style={{ paddingTop: '0px' }}
     >
       {/* Header */}
-      <div className="flex h-20 items-center justify-between px-5">
+      <div
+        className="flex h-20 items-center justify-between px-5"
+        style={{ paddingTop: '8px' }}
+      >
         {!collapsed && (
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-2xl gradient-primary flex items-center justify-center shadow-lg">

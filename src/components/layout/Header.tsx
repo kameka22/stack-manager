@@ -21,16 +21,20 @@ export function Header({ className }: HeaderProps) {
 
   return (
     <header
+      data-tauri-drag-region
       className={cn(
-        'sticky top-0 z-50 w-full',
+        'sticky top-0 z-50 w-full select-none',
         className
       )}
     >
-      <div className="flex h-20 items-center justify-between px-8">
-        <div className="flex items-center gap-6">
+      <div
+        className="flex h-20 items-center justify-between px-8"
+        style={{ paddingLeft: 'max(2rem, env(safe-area-inset-left, 80px))' }}
+      >
+        <div className="flex items-center gap-6" style={{ pointerEvents: 'auto' }}>
           {/* Search Bar */}
           <div className="relative w-96">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
             <input
               type="text"
               placeholder="Search stacks, deployments..."
@@ -39,7 +43,7 @@ export function Header({ className }: HeaderProps) {
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3" style={{ pointerEvents: 'auto' }}>
           {/* Notifications */}
           <Button
             variant="ghost"

@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppLayout } from './components/layout/AppLayout';
 import { Card, CardContent, CardHeader, CardTitle } from './components/ui/card';
 import { Button } from './components/ui/button';
+import { StackDetail } from './components/features/stacks/StackDetail';
+import { AddStackDialog } from './components/features/stacks/AddStackDialog';
 import {
   Plus,
   Layers,
@@ -17,6 +20,7 @@ import {
 
 function App() {
   const { t } = useTranslation();
+  const [currentView, setCurrentView] = useState<'home' | 'stack-detail'>('home');
 
   const stats = [
     {
@@ -93,6 +97,15 @@ function App() {
     },
   ];
 
+  // Render different views based on current navigation
+  if (currentView === 'stack-detail') {
+    return (
+      <AppLayout>
+        <StackDetail onBack={() => setCurrentView('home')} />
+      </AppLayout>
+    );
+  }
+
   return (
     <AppLayout>
       <div className="space-y-8 pb-8">
@@ -109,11 +122,18 @@ function App() {
                   {t('common.description')}
                 </p>
                 <div className="flex gap-4">
-                  <Button size="lg" className="gap-2">
-                    <Plus className="h-5 w-5" />
-                    Create New Stack
-                  </Button>
-                  <Button variant="glass" size="lg" className="gap-2">
+                  <AddStackDialog>
+                    <Button size="lg" className="gap-2">
+                      <Plus className="h-5 w-5" />
+                      Create New Stack
+                    </Button>
+                  </AddStackDialog>
+                  <Button
+                    variant="glass"
+                    size="lg"
+                    className="gap-2"
+                    onClick={() => setCurrentView('stack-detail')}
+                  >
                     <Layers className="h-5 w-5" />
                     View All Stacks
                   </Button>

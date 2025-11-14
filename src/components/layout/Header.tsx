@@ -22,7 +22,7 @@ export function Header({ className }: HeaderProps) {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 w-full rounded-tr-2xl overflow-hidden',
+        'sticky top-0 z-50 w-full rounded-tr-3xl overflow-hidden',
         className
       )}
     >
